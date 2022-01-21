@@ -41,7 +41,7 @@ class TstTestCase(TestCase):
         response = self.client.get(self.url, format="json")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.json()[0]["status"], "in_progress")
+        self.assertEqual(response.json()[0]["status"], "have_to_do")
 
         self.client.logout()
 
@@ -57,7 +57,7 @@ class TstTestCase(TestCase):
         response = self.client.get(self.url, format="json")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.json()[0]["status"], "in_progress")
+        self.assertEqual(response.json()[0]["status"], "have_to_do")
 
         update_data = {
             "status": "working_now",
